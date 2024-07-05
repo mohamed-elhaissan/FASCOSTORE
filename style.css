@@ -1,0 +1,122 @@
+:root {
+    --fontGray : #484848;
+    --fontBlack :#000;
+    --backgroundGray : #E0E0E0;
+    --background : #F5F7FA    ;
+    --volkhov : 'Volkhov', serif;
+    --poppins : 'poppins',sans-serif;
+}
+* {
+    margin: 0;
+    padding: 0;
+    font-family: var(--poppins);
+    box-sizing: border-box;
+}
+h1 {
+    font-family: var(--volkhov);
+    font-size: 52px;
+    color: var(--fontGray);
+}
+body {
+    background: var(--background);
+}
+header,section {
+    margin: 20px 120px;
+    padding: 10px;
+}
+header,nav,ul {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-between;
+}
+ul {
+    list-style: none;
+}
+ul li a {
+    font-size: 18px;
+    color: var(--fontGray);
+    text-decoration: none;
+    position: relative;
+}
+ul li a::before {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--fontGray);
+
+}
+ul li a:hover::before {
+    width: 100%;
+}
+button {
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    color: #fff;
+    border-radius: 10px;
+    background-color: var(--fontBlack);
+    border: 1px solid black;
+}
+button:hover {
+    opacity: 0.9;
+}
+.hero {
+    display: flex;
+    text-align: center;
+    gap: 20px;
+    justify-content: center;
+}
+.sides {
+    width: calc(100%/3);
+    background-color: var(--backgroundGray);
+    padding: 20px;
+    position: relative;
+    border-radius: 10px;
+}
+.sides img{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.fake {
+    filter: grayscale(100);
+}
+.hero > div:not(.sides){
+    display: flex;
+    flex-direction: column;
+}
+.hero > div:not(.sides) span {
+    border-radius: 10px;
+    background-color: var(--backgroundGray);
+}
+.hero > div:not(.sides) div p:first-of-type {
+    font-size: 91px;
+    color: var(--fontGray);
+    letter-spacing: -4%;
+    font-weight: 600;
+}
+.hero > div:not(.sides) div h2 {
+    font-size: 181px;
+    color: transparent;
+    -webkit-text-stroke: 2px black;
+    margin: -20% 0px 2px 0px;
+    margin-bottom: -10%;
+}
+.hero > div:not(.sides) div p:last-of-type {
+    letter-spacing: 2px;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+#Show {
+    margin-bottom: 20px;
+    letter-spacing: 4px;
+}
+.spantop {
+    display: inline-block;
+    height: 26.9%;
+}
