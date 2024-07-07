@@ -1,5 +1,10 @@
 
 document.addEventListener('DOMContentLoaded', function () {
+    window.onload = function () {
+        document.getElementsByClassName('loading-hero')[0].style.display = 'none';
+
+    }
+
     gsap.fromTo('header', {
         duration: 1,
         y: -100,
@@ -34,11 +39,33 @@ document.addEventListener('DOMContentLoaded', function () {
         y: -100, stagger: {
             amount: 1, from: "center"
         }
-    },{duration: 1, ease: 'back', opacity: 1,
+    }, {
+        duration: 1, ease: 'back', opacity: 1,
         y: 0, stagger: {
             amount: 1, from: "center"
-        }})
-        // scroll trigger on scrolling
-        gsap.registerPlugin(scrolltrigger);
-        
+        }
+    })
+    // scrolling using gsap scroll trigger
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    // scroll trigger on scrolling
+    var contDownTime = new Date('2024-9-25').getTime();
+    setInterval(() => {
+        var nowTime = new Date().getTime();
+        var timeDiff = contDownTime - nowTime;
+        var days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+        var hours = Math.floor(timeDiff % (1000 * 60 * 60 * 24) / (1000 * 60 * 60));
+        var min = Math.floor(timeDiff % (1000 * 60 * 60) / (1000 * 60));
+        var second = Math.floor(timeDiff % (1000 * 60) / (1000));
+        document.getElementById('days').innerHTML = days;
+        document.getElementById('hours').innerHTML = hours;
+        document.getElementById('min').innerHTML = min;
+        document.getElementById('second').innerHTML = second;
+    }, 1000);
+    // initailze the tilt librarie hover fot all products card
+    document.querySelectorAll('.produit').forEach(item => {
+        VanillaTilt.init(item)
+    });
+
 })
