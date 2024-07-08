@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     }
     gsap.registerPlugin(ScrollTrigger);
+    // gsap.registerPlugin()
     gsap.fromTo('header', {
         duration: 1,
         y: -100,
@@ -74,18 +75,40 @@ document.addEventListener('DOMContentLoaded', function () {
             behavior: 'smooth'
         })
     });
-    gsap.fromTo('.slide-item img,.sliderImage img',{
-        y:50,
-        duration:1,ease:'back',opacity:0
+    gsap.fromTo('.slide-item img',{
+        y:100,ease:'back',opacity:0
     },{
-        y:0,
-        duration:1,ease:'back',opacity:1,
+        y:0,ease:'back',opacity:1,
         stagger:{
             amount:1,from:"center"
         },
         scrollTrigger:{
-            trigger:'.slide-item img,.sliderImage img',toggleActions:'restart reverse'
+            start:"-100px bottom",
+            end:'top center',
+            trigger:'.slide-item img',
+            toggleActions:'restart'
         }
     })
+    gsap.fromTo('.left-side h2',{
+        opacity:0,scale:0,ease:'power4'},{
+            opacity:1,scale:1,ease:'power4',
+            scrollTrigger:{
+                start:'top center',
+                start:"-100px bottom",
+                end:'top top',
+                trigger:'.left-side h2',
+                toggleActions:'restart reverse restart reverse'
+            }
+        })
+    gsap.fromTo('.produit',{
+        opacity:0,x:400,scale:0,ease:'power4',delay:3},{
+            opacity:1,scale:1,x:0,ease:'power4',
+            scrollTrigger:{
+                start:'top center',
+                start:"-100px 80%",
+                end:'bottom center',
+                trigger:'.produit',
+            }
+        })
 
 })
