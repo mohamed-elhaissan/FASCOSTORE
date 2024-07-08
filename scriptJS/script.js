@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementsByClassName('loading-hero')[0].style.display = 'none';
 
     }
-
+    gsap.registerPlugin(ScrollTrigger);
     gsap.fromTo('header', {
         duration: 1,
         y: -100,
@@ -67,5 +67,25 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('.produit').forEach(item => {
         VanillaTilt.init(item)
     });
+    // arrow scroll to top
+    document.querySelector("ion-icon[name = 'arrow-up-outline']").addEventListener('click',()=>{
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        })
+    });
+    gsap.fromTo('.slide-item img,.sliderImage img',{
+        y:50,
+        duration:1,ease:'back',opacity:0
+    },{
+        y:0,
+        duration:1,ease:'back',opacity:1,
+        stagger:{
+            amount:1,from:"center"
+        },
+        scrollTrigger:{
+            trigger:'.slide-item img,.sliderImage img',toggleActions:'restart reverse'
+        }
+    })
 
 })

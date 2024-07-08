@@ -250,7 +250,6 @@ button {
 }
 
 .loading-hero div span {
-    filter: blur(2px);
     display: inline-block;
     background: var(--fontBlack);
     width: 15px;
@@ -413,12 +412,13 @@ ion-icon[name='star'] {
 }
 ion-icon[name = 'arrow-up-outline']{
     position: fixed;
-    bottom: 10%;
-    right: 10%;
+    bottom: 2%;
+    right: 2%;
     z-index: 100;
-    background-color: var(--background);
-    font-size: 40px;
-    padding: 20px;
+    border: 1px solid var(--fontBlack);
+    background-color: transparent;
+    font-size: 30px;
+    padding: 10px;
     border-radius: 50%;
     box-shadow: 0px 10px 30px rgba(0, 0, 0, .1);
     cursor: pointer;
